@@ -60,6 +60,7 @@ const exportColumns = [
   {
     name: '貸方内訳ｺｰﾄﾞ',
     from: '貸方補助',
+    default: '000000',
     convert: getSmileCodeIfInputed
   },
   { name: '貸方税ｺｰﾄﾞ' },
