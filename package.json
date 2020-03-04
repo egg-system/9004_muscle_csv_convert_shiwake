@@ -1,0 +1,22 @@
+{
+  "name": "9004_muscle_csv_convert_shiwake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egg-system/9004_muscle_csv_convert_shiwake.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egg-system/9004_muscle_csv_convert_shiwake/issues"
+  },
+  "homepage": "https://github.com/egg-system/9004_muscle_csv_convert_shiwake#readme",
+  "devDependencies": {
+    "moment": "^2.24.0"
+  }
+}
