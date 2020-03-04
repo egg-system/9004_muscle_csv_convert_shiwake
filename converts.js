@@ -1,6 +1,8 @@
 const { getSmileAccountCode } = require('./accounts.js')
+const { getSmileAccountSubCode } = require('./accounts-subcode.js')
 
 const getSmileCode = (value) => getSmileAccountCode(value)
+const getSmileSubCode = (value) => getSmileAccountSubCode(value)
 const getSmileCodeIfInputed = (value) => {
   if (value) {
     return getSmileAccountCode(value)
@@ -19,6 +21,7 @@ const hendouZiyuCode = (value) => {
 
 module.exports = {
   getSmileCode,
+  getSmileSubCode,
   getSmileCodeIfInputed,
   replaceComma,
   hendouZiyuCode,
