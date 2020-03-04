@@ -256,7 +256,7 @@ const codeTable =
 
 const errroCodes = []
 
-const getSmileAccountSubCode = (value) => {
+const getSmileAccountItemCode = (value) => {
   let fromCode = value[0]
   let fromSubCode = value[1]
   if (fromCode === '' || fromSubCode === '') {
@@ -271,5 +271,5 @@ const getSmileAccountSubCode = (value) => {
 
 
 module.exports = {
-  getSmileAccountSubCode
+  getSmileAccountItemCode
 }
