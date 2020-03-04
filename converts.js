@@ -10,8 +10,16 @@ const getSmileCodeIfInputed = (value) => {
 
 const replaceComma = (value) => value
 
+const hendouZiyuCode = (value) => {
+  if (['3331', '9211'].includes(value)) {
+    return '9999'
+  }
+  return ''
+}
+
 module.exports = {
   getSmileCode,
   getSmileCodeIfInputed,
   replaceComma,
+  hendouZiyuCode,
 }
