@@ -1,7 +1,8 @@
 const {
   getSmileCode,
-  getSmileCodeIfInputed,
+  getSmileItemCode,
   replaceComma,
+  hendouZiyuCode,
 } = require('./converts.js')
 
 const { dummuy } = require('./dummy-outputs.js')
@@ -14,18 +15,18 @@ const exportColumns = [
   { name: '伝票№' },
   { name: '決算区分', default: '1' },
   { name: '行', default: '1' },
-  { 
+  {
     name: '借方科目ｺｰﾄﾞ',
     from: '借方CD',
     convert: getSmileCode,
   },
   {
     name: '借方内訳ｺｰﾄﾞ',
-    from: '借方補助',
+    from: ['借方CD', '借方補助'],
     default: '000000',
-    convert: getSmileCodeIfInputed
+    convert: getSmileItemCode
   },
-  { name: '借方税ｺｰﾄﾞ' },
+  { name: '借方税ｺｰﾄﾞ', default: '000' },
   { name: '借方部門ｺｰﾄﾞ', default: '000000' },
   { name: '未使用' },
   { name: '未使用' },
@@ -50,7 +51,11 @@ const exportColumns = [
   { name: '借方税区分', default: '1' },
   { name: '借方摘要ｺｰﾄﾞ' },
   { name: '借方摘要', from: '元帳摘要（仕入れ資産等の総称）' },
-  { name: '借方変動事由ｺｰﾄﾞ' },
+  {
+    name: '借方変動事由ｺｰﾄﾞ',
+    from: '借方CD',
+    convert: hendouZiyuCode,
+  },
   { name: '借方Ｃ／Ｆ除外区分' },
   {
     name: '貸方科目ｺｰﾄﾞ',
@@ -59,11 +64,11 @@ const exportColumns = [
   },
   {
     name: '貸方内訳ｺｰﾄﾞ',
-    from: '貸方補助',
+    from: ['貸方CD', '貸方補助'],
     default: '000000',
-    convert: getSmileCodeIfInputed
+    convert: getSmileItemCode,
   },
-  { name: '貸方税ｺｰﾄﾞ' },
+  { name: '貸方税ｺｰﾄﾞ', default: '000' },
   { name: '貸方部門ｺｰﾄﾞ', default: '000000' },
   { name: '未使用' },
   { name: '未使用' },
@@ -88,7 +93,11 @@ const exportColumns = [
   { name: '貸方税区分', default: '1' },
   { name: '貸方摘要ｺｰﾄﾞ' },
   { name: '貸方摘要', from: '元帳摘要（仕入れ資産等の総称）' },
-  { name: '貸方変動事由ｺｰﾄﾞ' },
+  {
+    name: '貸方変動事由ｺｰﾄﾞ',
+    from: '貸方CD',
+    convert: hendouZiyuCode,
+  },
   { name: '貸方Ｃ／Ｆ除外区分' },
   { name: '仕訳入力区分', default: '1' },
   { name: '借方仕入先ｺｰﾄﾞ' },

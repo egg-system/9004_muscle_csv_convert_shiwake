@@ -1,4 +1,4 @@
-const moment = require('../../csv/node_modules/moment/moment.js')
+const moment = require('moment')
 
 const parses = {
   '月日': (value) => {
