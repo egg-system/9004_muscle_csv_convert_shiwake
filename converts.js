@@ -12,6 +12,11 @@ const getSmileCodeIfInputed = (value) => {
 
 const replaceComma = (value) => value
 
+const taxValue = (value) => {
+  return (value === '' || value === '0') ? '' : value
+}
+
+
 const hendouZiyuCode = (value) => {
   if (['3331', '9211'].includes(value)) {
     return '9999'
@@ -24,4 +29,5 @@ module.exports = {
   getSmileItemCode,
   replaceComma,
   hendouZiyuCode,
+  taxValue,
 }
