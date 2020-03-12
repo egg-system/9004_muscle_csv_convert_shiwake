@@ -1,10 +1,12 @@
 const {
   getSmileCode,
   getSmileItemCode,
+  getAccountDepartmentCode,
   replaceComma,
   hendouZiyuCode,
   taxValue,
   taxCode,
+  taxDivision,
 } = require('./converts.js')
 
 const { dummuy } = require('./dummy-outputs.js')
@@ -33,7 +35,11 @@ const exportColumns = [
     from: ['取引金額', '税'],
     convert: taxCode,
   },
-  { name: '借方部門ｺｰﾄﾞ', default: '000000' },
+  {
+    name: '借方部門ｺｰﾄﾞ',
+    from: '借方CD',
+    convert: getAccountDepartmentCode,
+  },
   { name: '未使用' },
   { name: '未使用' },
   { name: '未使用' },
@@ -54,7 +60,11 @@ const exportColumns = [
     from: '内、消費税等',
     convert: taxValue,
   },
-  { name: '借方税区分', default: '1' },
+  {
+    name: '借方税区分',
+    from: '内、消費税等',
+    convert: taxDivision,
+  },
   { name: '借方摘要ｺｰﾄﾞ' },
   { name: '借方摘要', from: '元帳摘要（仕入れ資産等の総称）' },
   {
@@ -79,7 +89,11 @@ const exportColumns = [
     from: ['取引金額', '税'],
     convert: taxCode,
   },
-  { name: '貸方部門ｺｰﾄﾞ', default: '000000' },
+  {
+    name: '貸方部門ｺｰﾄﾞ',
+    from: '貸方CD',
+    convert: getAccountDepartmentCode,
+  },
   { name: '未使用' },
   { name: '未使用' },
   { name: '未使用' },
@@ -100,7 +114,11 @@ const exportColumns = [
     from: '内、消費税等',
     convert: taxValue,
   },
-  { name: '貸方税区分', default: '1' },
+  {
+    name: '貸方税区分',
+    from: '内、消費税等',
+    convert: taxDivision,
+  },
   { name: '貸方摘要ｺｰﾄﾞ' },
   { name: '貸方摘要', from: '元帳摘要（仕入れ資産等の総称）' },
   {

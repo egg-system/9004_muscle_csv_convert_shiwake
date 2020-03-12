@@ -1,4 +1,4 @@
-const { getSmileAccountCode } = require('./accounts.js')
+const { getSmileAccountCode, getAccountDepartmentCode } = require('./accounts.js')
 const { getSmileAccountItemCode } = require('./accounts-item-code.js')
 
 const getSmileCode = (value) => getSmileAccountCode(value)
@@ -14,6 +14,10 @@ const replaceComma = (value) => value
 
 const taxValue = (value) => {
   return (value === '' || value === '0') ? '' : value
+}
+
+const taxDivision = (value) => {
+  return (value === '' || value === '0') ? '0' : '1'
 }
 
 const taxCode = (value) => {
@@ -47,9 +51,11 @@ const hendouZiyuCode = (value) => {
 
 module.exports = {
   getSmileCode,
+  getAccountDepartmentCode,
   getSmileItemCode,
   replaceComma,
   hendouZiyuCode,
   taxValue,
   taxCode,
+  taxDivision,
 }
