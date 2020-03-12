@@ -4,6 +4,7 @@ const {
   replaceComma,
   hendouZiyuCode,
   taxValue,
+  taxCode,
 } = require('./converts.js')
 
 const { dummuy } = require('./dummy-outputs.js')
@@ -27,7 +28,11 @@ const exportColumns = [
     default: '000000',
     convert: getSmileItemCode
   },
-  { name: '借方税ｺｰﾄﾞ', default: '000' },
+  {
+    name: '借方税ｺｰﾄﾞ',
+    from: ['取引金額', '税'],
+    convert: taxCode,
+  },
   { name: '借方部門ｺｰﾄﾞ', default: '000000' },
   { name: '未使用' },
   { name: '未使用' },
@@ -69,7 +74,11 @@ const exportColumns = [
     default: '000000',
     convert: getSmileItemCode,
   },
-  { name: '貸方税ｺｰﾄﾞ', default: '000' },
+  {
+    name: '貸方税ｺｰﾄﾞ',
+    from: ['取引金額', '税'],
+    convert: taxCode,
+  },
   { name: '貸方部門ｺｰﾄﾞ', default: '000000' },
   { name: '未使用' },
   { name: '未使用' },
