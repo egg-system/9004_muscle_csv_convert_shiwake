@@ -60,7 +60,7 @@ const exportColumns = [
     from: '内、消費税等',
     convert: taxValue,
   },
-  { name: '借方税区分', default: '0' },
+  { name: '借方税区分', default: '1' },
   { name: '借方摘要ｺｰﾄﾞ' },
   { name: '借方摘要', from: '元帳摘要（仕入れ資産等の総称）' },
   {
@@ -110,7 +110,7 @@ const exportColumns = [
     from: '内、消費税等',
     convert: taxValue,
   },
-  { name: '貸方税区分',default: '0' },
+  { name: '貸方税区分',default: '1' },
   { name: '貸方摘要ｺｰﾄﾞ' },
   { name: '貸方摘要', from: '元帳摘要（仕入れ資産等の総称）' },
   {
