@@ -1,10 +1,10 @@
 // コマンドからの引数を取得可能にする
-const commander = require('commander')
-  .option('-c, --config-file <type>')
-  .option('-i, --input-csv <type>')
-  .option('-o, --output-csv <type>')
-commander.parse(process.argv)
-
+// const commander = require('commander')
+//   .option('-c, --config-file <type>')
+//   .option('-i, --input-csv <type>')
+//   .option('-o, --output-csv <type>')
+// commander.parse(process.argv)
+const { commander } = require('./commander.js')
 // 設定ファイルの読み込み
 const { getConfig } = require('./config.js')
 const config = getConfig(commander.configFile)

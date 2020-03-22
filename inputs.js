@@ -1,8 +1,9 @@
 const moment = require('moment')
+const { commander } = require('./commander.js')
 
 const parses = {
   '月日': (value) => {
-    const dateString = value.replace('*', '2019').replace(' ', '')
+    const dateString = value.replace('*', commander.shiwakeYear).replace(' ', '')
     return moment(dateString, 'YYYYM.D').format('YYYYMMDD')
   }
 }

@@ -1,5 +1,6 @@
 const { getSmileAccountCode, getAccountDepartmentCode } = require('./accounts.js')
 const { getSmileAccountItemCode } = require('./accounts-item-code.js')
+const { getSmileTaxCode } = require('./tax-code.js')
 
 const getSmileCode = (value) => getSmileAccountCode(value)
 const getSmileItemCode = (value) => getSmileAccountItemCode(value)
@@ -9,37 +10,31 @@ const getSmileCodeIfInputed = (value) => {
   }
   return value
 }
+const getTaxCode = (accountCode, date) => {
+  let smileCode = getSmileCode(accountCode)
+  return getSmileTaxCode(smileCode, date)
+}
 
 const replaceComma = (value) => value
 
-const taxValue = (value) => {
-  return (value === '' || value === '0') ? '' : value
+const smileTaxValue = (tax, taxCode) => {
+  if (tax === '' || tax === '0') {
+    return ''
+  }
+  if (['000', '120', '440'].includes(taxCode)) {
+    return ''
+  }
+  return tax
 }
 
-const taxDivision = (value) => {
+const taxValue = (accountCode, date, tax) => {
+  let taxCode = getTaxCode(accountCode, date)
+  return smileTaxValue(tax, taxCode)
+}
+
+const taxDivision = (accountCode, date, tax) => {
+  let value = taxValue(accountCode, date, tax)
   return (value === '' || value === '0') ? '0' : '1'
-}
-
-const taxCode = (value) => {
-  let price = value[0]
-  let type = value[1]
-  if (price === '' || price === '0') {
-    return '000'
-  }
-  switch(type) {
-    case '0':
-      return '000' //対象外
-    case '1':
-      return '115' //課税売上（10%）
-    case '3':
-      return '120'
-    case '5':
-    case '7':
-      return '415' //課税仕入（10%）
-    case '8':
-      return '440' //非課税仕入
-  }
-  return '000'
 }
 
 const hendouZiyuCode = (value) => {
@@ -51,11 +46,11 @@ const hendouZiyuCode = (value) => {
 
 module.exports = {
   getSmileCode,
+  getTaxCode,
   getAccountDepartmentCode,
   getSmileItemCode,
   replaceComma,
   hendouZiyuCode,
   taxValue,
-  taxCode,
   taxDivision,
 }
