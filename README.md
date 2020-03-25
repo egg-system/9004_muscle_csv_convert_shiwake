@@ -1,6 +1,6 @@
 # CSV変換プログラムの設定ファイル
 ## 呼び出し方
-- `npm run convert  -- -i{入力CSV} -o{出力CSV}` 　例：`npm run convert  -- -iinput.csv -ooutput.csv`
+- `npm run convert  -- -i{入力CSV} -o{出力CSV} -y{対象年}` 　例：`npm run convert  -- -iinput.csv -ooutput.csv -y2019`
 
 ## ファイル構成
 |  ファイル名  |  役割  |
